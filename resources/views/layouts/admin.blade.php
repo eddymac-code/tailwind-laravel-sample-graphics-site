@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Acme Graphics</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body class="bg-gray-200">
     <nav class="mb-6 p-6 bg-white flex justify-between">
@@ -15,7 +16,7 @@
                     <a href="" class="p-3">Dashboard</a>
                 </li>
                 <li>
-                    <a href="" class="p-3">Products</a>
+                    <a href="{{ route('entries') }}" class="p-3">Products</a>
                 </li>
                 <li>
                     <a href="" class="p-3">Settings</a>
@@ -26,10 +27,11 @@
         <ul class="flex items-center">
             @auth
                 <li>
-                    <a href="" class="p-3">Admin-Name</a>
+                    <a href="" class="p-3">{{ auth()->user()->name }}</a>
                 </li>
                 <li>
                     <form action="{{ route('logout') }}" method="post" class="p-3 inline">
+                        @csrf
                         <button type="submit" class="p-3">Logout</button>
                     </form>
                 </li>

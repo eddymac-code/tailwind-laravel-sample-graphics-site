@@ -1,0 +1,23 @@
+.deleteform {
+    display:inline-block
+}
+
+.dataTable {
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+.imageDiv {
+    width: 33.3%;
+    text-align: center;
+    flex: 70%;
+}
+
+.descDiv {
+    width: full;
+    text-align: center;
+    flex: 30%;
+}

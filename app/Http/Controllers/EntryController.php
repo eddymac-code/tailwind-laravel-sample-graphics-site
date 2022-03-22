@@ -16,7 +16,7 @@ class EntryController extends Controller
     public function index()
     {
         $data = Entry::all();
-        return view('entry.data', [
+        return view('admin.entry.data', [
             'data' => $data
         ]);
     }
@@ -28,7 +28,7 @@ class EntryController extends Controller
      */
     public function create()
     {
-        return view('entry.create');
+        return view('admin.entry.create');
     }
 
     /**
@@ -39,10 +39,22 @@ class EntryController extends Controller
      */
     public function store(StoreEntryRequest $request)
     {
-        $this->validate($request, [
-            'title' => 'required|max:255',
-            'date' => 'required|date'
+        if ($request->hasFile('image')) {
+            $destination_path = 'public/images/entries';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+        }
+        
+        $request->user()->entries()->create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $image_name,
+            'date' => $request->date,
         ]);
+        
+        return back()->with('status', 'Successfully saved!');
+        
     }
 
     /**
@@ -53,7 +65,11 @@ class EntryController extends Controller
      */
     public function show(Entry $entry)
     {
-        //
+        $data = Entry::find($entry);
+
+        return view('admin.entry.show', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -64,7 +80,7 @@ class EntryController extends Controller
      */
     public function edit(Entry $entry)
     {
-        //
+        
     }
 
     /**
@@ -87,6 +103,6 @@ class EntryController extends Controller
      */
     public function destroy(Entry $entry)
     {
-        //
+        
     }
 }

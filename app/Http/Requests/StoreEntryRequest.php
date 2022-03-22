@@ -13,7 +13,7 @@ class StoreEntryRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return auth()->user();
     }
 
     /**
@@ -24,7 +24,8 @@ class StoreEntryRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|max:255',
+            'date' => 'required|date|after_or_equal:today'
         ];
     }
 }
