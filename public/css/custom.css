@@ -1,3 +1,8 @@
+.nav {
+    background-color: rgb(16, 16, 71);
+    color: white;
+}
+
 .deleteform {
     display:inline-block
 }
@@ -10,14 +15,28 @@ td {
     text-align: center;
 }
 
+.infoDiv {
+    height: 300px;
+    box-shadow: 5px 10px 18px grey;
+}
+
 .imageDiv {
-    width: 33.3%;
-    text-align: center;
-    flex: 70%;
+    height: 70%;
+}
+
+.imageDiv img {
+    width: 150px;
+    height: 150px;
+    margin:auto;
 }
 
 .descDiv {
-    width: full;
-    text-align: center;
-    flex: 30%;
+    height: 30%;
+}
+
+#showcase {
+    height: 100vh;
+    background: url(../../public/images/background/bk1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }

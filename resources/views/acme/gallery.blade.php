@@ -2,28 +2,18 @@
 
 @section('content')
     <div class="flex justify-center">
-        <div class="w-8/12 bg-white p-6 rounded-lg">
-            Gallery page
+        <div class="w-8/12 bg-white p-6 rounded-lg grid grid-cols-3 gap-3">
                 @foreach ($data as $entry)
-                    <div class="grid grid-columns-3">
-                        <div class="imageDiv">
+                    <div class="infoDiv">
+                        <div class="flex items-center justify-centre imageDiv">
                             <img src="{{ asset('storage/images/entries/'.$entry->image) }}" alt="">
                         </div>
-                        <div class="descDiv">
-                            <a href="" class="font-bold">{{ $entry->user->name }}</a> <span
-                            class="text-gray-600 text-sm">{{ $entry->created_at->diffForHumans() }}</span>
+                        <div class="flex items-center justify-centre bg-blue-500 descDiv">
+                            <a href="" class="ml-3 font-bold">{{ $entry->user->name }}</a> <span
+                            class="ml-3 text-gray-600 text-sm">{{ $entry->created_at->diffForHumans() }}</span>
                         </div>
                     </div>
                 @endforeach
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div>6</div>
-                <div>7</div>
-                <div>8</div>
-                <div>9</div>
         </div>
     </div>
 @endsection

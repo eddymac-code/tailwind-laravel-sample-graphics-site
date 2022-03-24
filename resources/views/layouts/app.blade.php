@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('css/custom.css') }}">
 </head>
 <body class="bg-gray-200">
-    <nav class="mb-6 p-6 bg-white flex justify-between">
+    <nav class="w-full p-6 bg-white flex justify-between z-1 fixed nav">
         <ul class="flex items-center">
             <li>
                 <a href="{{ route('home') }}" class="p-3">Home</a>
